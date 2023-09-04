@@ -1,0 +1,50 @@
+# 数据源配置
+spring:
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/mechat?serverTimezone=GMT%2B8&characterEncoding=utf-8&useSSL=false
+    username: root
+    password: 134525
+  redis:
+    #数据库索引
+    database: 0
+    host: 192.168.249.135
+    port: 6379
+    password: 134525
+    jedis:
+      pool:
+        #最大连接数
+        max-active: 8
+        #最大阻塞等待时间(负数表示没限制)
+        max-wait: -1
+        #最大空闲
+        max-idle: 8
+        #最小空闲
+        min-idle: 0
+        #连接超时时间
+
+
+#  # redis 配置
+#  redis:
+#    # 地址
+#    host: localhost
+#    # 端口，默认为6379
+#    port: 6379
+#    # 数据库索引
+#    database: 0
+#    # 密码
+#    password:
+
+
+ucode:
+  code:
+    package-name: "xin.ucode.sys"
+    domain:
+      add-construction-method: true
+    join-query: false
+    remove-table-prefix: true
+    use-swagger: true
+    useLombok: true
+    xml:
+      add-xml: true
+    filter-sys-table: true

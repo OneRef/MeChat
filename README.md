@@ -1,2 +1,3 @@
-# MeChat
-即时聊天工具，会有一个模式来控制消息存在时长
+### [使用指南](https://gitee.com/decsa/ucode-cms-vue/tree/master/ucode-cms-code)
+
+两份测试SQL 选取一份使用即可
