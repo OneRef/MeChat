@@ -48,4 +48,8 @@ public class ChatChannelController{
     public AjaxResult detail(@PathVariable("id") Integer id) {
         return AjaxResult.success(chatChannelService.getById(id));
     }
+    @PostMapping("/hello")
+    public AjaxResult hello(){
+        return  AjaxResult.success("hello");
+    }
 }

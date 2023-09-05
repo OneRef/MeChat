@@ -28,6 +28,7 @@ public class LoginServiceImpl implements LoginServcie {
     public ResponseResult login(User user) {
         UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(user.getUsername(),user.getPassword());
         Authentication authenticate = authenticationManager.authenticate(authenticationToken);
+        System.out.println("断电");
         if(Objects.isNull(authenticate)){
             throw new RuntimeException("用户名或密码错误");
         }
