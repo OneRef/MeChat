@@ -17,6 +17,9 @@ spring:
     allow-circular-references: true
   profiles:
     active: dev
+  mvc:
+    servlet:
+      load-on-startup: 1
 
 
 
