@@ -1,26 +1,28 @@
 package xin.ucode.channel.controller;
 import io.swagger.annotations.Api;
+import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.Arrays;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import xin.ucode.channel.domain.ChatUserChannel;
-import xin.ucode.channel.mapper.ChatUserChannelMapper;
 import xin.altitude.cms.common.entity.AjaxResult;
 import java.util.List;
 import org.springframework.web.bind.annotation.RestController;
+import xin.ucode.channel.pojo.query.IdRequest;
 import xin.ucode.channel.service.IChatUserChannelService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import xin.altitude.cms.common.entity.PageEntity;
-import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import xin.ucode.utils.ResponseResult;
+
 @RestController
 @Api(tags = "频道模块-用户频道")
-@RequestMapping("/channel/chat/user/channel")
+@RequestMapping("/channel/chat/user")
 public class ChatUserChannelController{
     @Autowired
     private IChatUserChannelService chatUserChannelService;
@@ -47,5 +49,15 @@ public class ChatUserChannelController{
     @GetMapping(value = "/detail/{id}")
     public AjaxResult detail(@PathVariable("id") Integer id) {
         return AjaxResult.success(chatUserChannelService.getById(id));
+    }
+    @PostMapping("/getFriends")
+    @Operation(summary = "用户频道-获取好友列表")
+    public ResponseResult<List<ChatUserChannel>> getFriendsById(@RequestBody IdRequest id){
+        return ResponseResult.success(chatUserChannelService.getFriendsById(id.getId()));
+    }
+    @PostMapping("/getGroups")
+    @Operation(summary = "用户频道-获取群聊列表")
+    public ResponseResult<List<ChatUserChannel>> getGroupsById(@RequestBody IdRequest id){
+        return ResponseResult.success(chatUserChannelService.getGroupsById(id.getId()));
     }
 }

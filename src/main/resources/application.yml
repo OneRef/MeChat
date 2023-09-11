@@ -22,7 +22,9 @@ spring:
       load-on-startup: 1
 
 
-
+files:
+  upload:
+    path: D:/demo/MeChat/files/
 
 knife4j:
   enable: true

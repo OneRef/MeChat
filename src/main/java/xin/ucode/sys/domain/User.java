@@ -24,7 +24,7 @@ import java.io.Serializable;
 public class User{
     private static final long serialVersionUID = 1L;
     @TableId(type = IdType.AUTO)
-    private Integer id;
+    private Long id;
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime createTime;
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
@@ -37,6 +37,8 @@ public class User{
     private String nickname;
     @ApiModelProperty(value = "电子邮箱", position = 7)
     private String email;
+    @ApiModelProperty(value = "个人头像", position = 8)
+    private String avatar;
     
     public User(User user) {
         if (Objects.nonNull(user)) {

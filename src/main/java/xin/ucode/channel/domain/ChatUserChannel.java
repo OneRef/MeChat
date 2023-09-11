@@ -33,14 +33,6 @@ public class ChatUserChannel{
     private Integer userId;
     @ApiModelProperty(value = "频道id", position = 5)
     private Integer channelId;
-    
-    public ChatUserChannel(ChatUserChannel chatUserChannel) {
-        if (Objects.nonNull(chatUserChannel)) {
-            this.id=chatUserChannel.id;
-            this.createTime=chatUserChannel.createTime;
-            this.updateTime=chatUserChannel.updateTime;
-            this.userId=chatUserChannel.userId;
-            this.channelId=chatUserChannel.channelId;
-        }
-    }
+    @ApiModelProperty(value = "1:好友,2:群聊", position = 6)
+    private Integer channelType;
 }

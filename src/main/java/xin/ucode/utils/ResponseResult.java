@@ -3,7 +3,7 @@ package xin.ucode.utils;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 /**
- * @Author 三更  B站： https://space.bilibili.com/663528522
+ * @Author 来福
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ResponseResult<T> {
@@ -28,6 +28,10 @@ public class ResponseResult<T> {
     public ResponseResult(Integer code, T data) {
         this.code = code;
         this.data = data;
+    }
+
+    public ResponseResult() {
+
     }
 
     public Integer getCode() {
@@ -58,5 +62,14 @@ public class ResponseResult<T> {
         this.code = code;
         this.msg = msg;
         this.data = data;
+    }
+    public static <T> ResponseResult<T> success(T data){
+        return new ResponseResult(Constants.CODE_200,"请求成功",data);
+    }
+    public static ResponseResult success(String msg){
+        return new ResponseResult(Constants.CODE_200,msg);
+    }
+    public static  ResponseResult error(Integer code,String msg){
+        return new ResponseResult(code,msg);
     }
 }

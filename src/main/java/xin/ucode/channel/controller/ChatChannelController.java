@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import xin.ucode.channel.service.IChatChannelService;
 @RestController
 @Api(tags = "频道模块-频道使用")
-@RequestMapping("/channel/chat/channel")
+@RequestMapping("/channel/chat")
 public class ChatChannelController{
     @Autowired
     private IChatChannelService chatChannelService;
@@ -52,4 +52,5 @@ public class ChatChannelController{
     public AjaxResult hello(){
         return  AjaxResult.success("hello");
     }
+
 }

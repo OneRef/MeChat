@@ -1,5 +1,8 @@
 package xin.ucode.sys.controller;
+import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import io.swagger.annotations.Api;
+import io.swagger.v3.oas.annotations.Operation;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.Arrays;
@@ -17,6 +20,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import xin.ucode.sys.service.LoginServcie;
+import xin.ucode.utils.Constants;
 import xin.ucode.utils.ResponseResult;
 
 @RestController
@@ -53,12 +57,16 @@ public class UserController{
         return AjaxResult.success(userService.getById(id));
     }
 
-
-
-    @PostMapping("/user/login")
+    @Operation(summary = "系统模块-用户登录")
+    @PostMapping("/login")
     public ResponseResult login(@RequestBody User user){
         return loginServcie.login(user);
     }
 
+    @Operation(summary = "系统模块-用户注册")
+    @PostMapping("/register")
+    public ResponseResult register(@RequestBody User user){
+        return userService.register(user);
+    }
 
 }

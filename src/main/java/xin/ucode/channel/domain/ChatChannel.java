@@ -37,6 +37,8 @@ public class ChatChannel{
     private String channelName;
     @ApiModelProperty(value = "频道人数", position = 6)
     private Integer channelNum;
+    @ApiModelProperty(value = "群聊头像", position = 7)
+    private String avatar;
     
     public ChatChannel(ChatChannel chatChannel) {
         if (Objects.nonNull(chatChannel)) {
