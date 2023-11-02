@@ -69,4 +69,11 @@ public class UserController{
         return userService.register(user);
     }
 
+    @Operation(summary = "系统模块-用户退出登录")
+    @PostMapping("/logout")
+    public ResponseResult logout(@RequestBody User user){
+        return userService.logout(user);
+    }
+
+
 }

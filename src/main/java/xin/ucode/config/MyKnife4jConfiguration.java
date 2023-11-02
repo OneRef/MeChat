@@ -46,8 +46,8 @@ public class MyKnife4jConfiguration {
                 //页面标题
                 .title("MeChat集成knife4 测试接口文档")
                 //创建人
-                .contact(new Contact("糊福！", "https://space.bilibili.com/35317689", " v2472331253@163.com"))
-                //版本号
+                .contact(new Contact("糊福！", "https://.bilibili.com/35317689", " v2472331253@163.com"))
+                //版本号space
                 .version("1.0")
                 //描述
                 .description("API 描述")

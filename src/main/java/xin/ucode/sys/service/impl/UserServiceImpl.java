@@ -3,12 +3,16 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import xin.ucode.sys.domain.LoginUser;
 import xin.ucode.sys.domain.User;
 import xin.ucode.sys.mapper.UserMapper;
 import xin.ucode.sys.service.IUserService;
 import xin.ucode.utils.Constants;
+import xin.ucode.utils.RedisCache;
 import xin.ucode.utils.ResponseResult;
 
 @Service
@@ -16,6 +20,8 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
 
     @Autowired
     UserMapper userMapper;
+    @Autowired
+    RedisCache redisCache;
     @Override
     public ResponseResult register(User user) {
         if (StringUtils.isBlank(user.getUsername()) || StringUtils.isBlank(user.getPassword()))
@@ -43,6 +49,18 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         user.setId(null);
         save(user);
         return ResponseResult.success("注册成功");
+    }
+
+    @Override
+    public ResponseResult logout(User user) {
+        //获取用户id
+        Authentication authentication= SecurityContextHolder.getContext().getAuthentication();
+        LoginUser loginUser=(LoginUser)authentication.getPrincipal();
+        Long userId= loginUser.getUser().getId();
+        redisCache.deleteObject("login:"+userId);
+        //删除redis当中的数据
+
+        return ResponseResult.success("退出成功");
     }
 
     public boolean isUsernameExists(String username) {

@@ -5,6 +5,10 @@ server:
 
 # Spring配置
 spring:
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
   jackson:
     date-format: 'yyyy-MM-dd HH:mm:ss'
     time-zone: 'GMT+8'
