@@ -57,19 +57,19 @@ public class UserController{
         return AjaxResult.success(userService.getById(id));
     }
 
-    @Operation(summary = "系统模块-用户登录")
+    @Operation(summary = "用户登录")
     @PostMapping("/login")
     public ResponseResult login(@RequestBody User user){
         return loginServcie.login(user);
     }
 
-    @Operation(summary = "系统模块-用户注册")
+    @Operation(summary = "用户注册")
     @PostMapping("/register")
     public ResponseResult register(@RequestBody User user){
         return userService.register(user);
     }
 
-    @Operation(summary = "系统模块-用户退出登录")
+    @Operation(summary = "用户退出登录")
     @PostMapping("/logout")
     public ResponseResult logout(@RequestBody User user){
         return userService.logout(user);

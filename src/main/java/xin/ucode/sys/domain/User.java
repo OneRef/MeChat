@@ -31,13 +31,15 @@ public class User{
     private LocalDateTime updateTime;
     @ApiModelProperty(value = "用户名", position = 4)
     private String username;
-    @ApiModelProperty(value = "密码", position = 5)
+    @ApiModelProperty(value = "用户类型（学生 老师 管理员）", position = 5)
+    private String role;
+    @ApiModelProperty(value = "密码", position = 6)
     private String password;
-    @ApiModelProperty(value = "昵称", position = 6)
+    @ApiModelProperty(value = "昵称", position = 7)
     private String nickname;
-    @ApiModelProperty(value = "电子邮箱", position = 7)
+    @ApiModelProperty(value = "电子邮箱", position = 8)
     private String email;
-    @ApiModelProperty(value = "个人头像", position = 8)
+    @ApiModelProperty(value = "个人头像", position = 9)
     private String avatar;
     
     public User(User user) {
@@ -46,6 +48,7 @@ public class User{
             this.createTime=user.createTime;
             this.updateTime=user.updateTime;
             this.username=user.username;
+            this.role=user.role;
             this.password=user.password;
             this.nickname=user.nickname;
             this.email=user.email;

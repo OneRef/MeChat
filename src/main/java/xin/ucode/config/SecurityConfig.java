@@ -33,12 +33,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .authorizeRequests()
-                // 对于登录接口 允许匿名访问
-                .antMatchers("/user/login","/user/register","/file/{fileUUID}","/file/upload").permitAll()
-                //允许所有人访问knife4j
-                .antMatchers("/gen","/doc.html","/webjars/**","/img.icons/**","/swagger-resources/**","/v2/api-docs").permitAll()
-                // 除上面外的所有请求全部需要鉴权认证
-                .anyRequest().authenticated()
+//                // 对于登录接口 允许匿名访问
+//                .antMatchers("/user/login","/user/register","/file/{fileUUID}","/file/upload").permitAll()
+//                //允许所有人访问knife4j
+//                .antMatchers("/gen","/doc.html","/webjars/**","/img.icons/**","/swagger-resources/**","/v2/api-docs").permitAll()
+//                // 除上面外的所有请求全部需要鉴权认证
+//                .anyRequest().authenticated()
+                  .anyRequest().permitAll() //开启识别token
         ;
         http.addFilterBefore(jwtAuthenticationTokenFilter, UsernamePasswordAuthenticationFilter.class);
     }
