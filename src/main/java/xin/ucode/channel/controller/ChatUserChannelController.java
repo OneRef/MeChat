@@ -1,25 +1,20 @@
 package xin.ucode.channel.controller;
 import io.swagger.annotations.Api;
 import io.swagger.v3.oas.annotations.Operation;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.Arrays;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import xin.ucode.channel.domain.ChatUserChannel;
 import xin.altitude.cms.common.entity.AjaxResult;
 import java.util.List;
-import org.springframework.web.bind.annotation.RestController;
+
 import xin.ucode.channel.pojo.query.IdRequest;
 import xin.ucode.channel.service.IChatUserChannelService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
 import xin.altitude.cms.common.entity.PageEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
 import xin.ucode.utils.ResponseResult;
-
+@CrossOrigin
 @RestController
 @Api(tags = "频道模块-用户频道")
 @RequestMapping("/channel/chat/user")

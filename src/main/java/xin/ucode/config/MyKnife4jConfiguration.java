@@ -18,6 +18,17 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @Configuration
 @EnableSwagger2
 public class MyKnife4jConfiguration {
+    @Bean(value = "考试")
+    public Docket createRestApiExam() {
+        return new Docket(DocumentationType.SWAGGER_2)
+                .apiInfo(apiInfo())
+                .groupName("考试模块")
+                .select()
+                //为当前包路径,控制器类包
+                .apis(RequestHandlerSelectors.basePackage("xin.ucode.exam.controller"))
+                .paths(PathSelectors.any())
+                .build();
+    }
     @Bean(value = "频道")
     public Docket createRestApi() {
         return new Docket(DocumentationType.SWAGGER_2)

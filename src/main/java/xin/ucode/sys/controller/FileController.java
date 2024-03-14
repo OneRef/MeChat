@@ -27,6 +27,7 @@ import java.util.Set;
 /**
  * 文件上传相关接口
  */
+
 @RestController
 @CrossOrigin
 @Api(tags = "系统模块-文件接口")
@@ -66,7 +67,8 @@ public class FileController {
 
         file.transferTo(uploadFile);
        // System.out.println("ip地址： " +getIp().toArray()[2]);
-        String url="http://"+getIp().toArray()[0]+":8080/file/" + fileUUID;
+        //String url="http://"+getIp().toArray()[0]+":8080/file/" + fileUUID;
+        String url="http://"+"localhost"+":8080/file/" + fileUUID;
         //存储数据库
         Files saveFile = new Files();
         saveFile.setName(originalFilename);

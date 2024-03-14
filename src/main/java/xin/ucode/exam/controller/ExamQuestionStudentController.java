@@ -1,23 +1,21 @@
 package xin.ucode.exam.controller;
-import org.springframework.web.bind.annotation.RequestMapping;
+import io.swagger.annotations.Api;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.Arrays;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import xin.ucode.exam.domain.ExamQuestionStudent;
 import xin.altitude.cms.common.entity.AjaxResult;
 import java.util.List;
-import org.springframework.web.bind.annotation.RestController;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
 import xin.altitude.cms.common.entity.PageEntity;
 import xin.ucode.exam.service.IExamQuestionStudentService;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
 import xin.ucode.exam.mapper.ExamQuestionStudentMapper;
 @RestController
+@CrossOrigin
+@Api(tags = "考试模块-作答情况管理")
 @RequestMapping("/exam/exam/question/student")
 public class ExamQuestionStudentController{
     @Autowired

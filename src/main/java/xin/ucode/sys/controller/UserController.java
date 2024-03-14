@@ -3,26 +3,19 @@ import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import io.swagger.annotations.Api;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import xin.ucode.sys.domain.User;
 import xin.ucode.sys.service.IUserService;
 import xin.altitude.cms.common.entity.AjaxResult;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
 import xin.altitude.cms.common.entity.PageEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
 import xin.ucode.sys.service.LoginServcie;
 import xin.ucode.utils.Constants;
 import xin.ucode.utils.ResponseResult;
-
+@CrossOrigin
 @RestController
 @Api(tags = "系统模块-用户接口")
 @RequestMapping("/user")

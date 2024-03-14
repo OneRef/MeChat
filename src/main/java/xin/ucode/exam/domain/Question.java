@@ -11,10 +11,8 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.Objects;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+
+import lombok.*;
 import lombok.experimental.Accessors;
 import java.io.Serializable;
 @Data
@@ -30,7 +28,7 @@ public class Question{
     @ApiModelProperty(value = "题目难度（0-100）", position = 3)
     private Integer difficulty;
     @ApiModelProperty(value = "关联学科id", position = 4)
-    private Integer subjecId;
+    private Integer subjectId;
     @ApiModelProperty(value = "章节", position = 5)
     private Integer chapter;
     @ApiModelProperty(value = "题目类型（1单选2多选3填空4主观）", position = 6)
@@ -43,19 +41,22 @@ public class Question{
     private Integer score;
     @ApiModelProperty(value = "参考答案", position = 10)
     private String answerText;
+    @ApiModelProperty(value = "上传者id", position = 11)
+    private String userId;
     
     public Question(Question question) {
         if (Objects.nonNull(question)) {
             this.id=question.id;
             this.questionText=question.questionText;
             this.difficulty=question.difficulty;
-            this.subjecId=question.subjecId;
+            this.subjectId=question.subjectId;
             this.chapter=question.chapter;
             this.type=question.type;
             this.createTime=question.createTime;
             this.updateTime=question.updateTime;
             this.score=question.score;
             this.answerText=question.answerText;
+            this.userId=question.userId;
         }
     }
 }
